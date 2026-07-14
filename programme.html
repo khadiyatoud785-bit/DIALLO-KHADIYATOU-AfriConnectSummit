@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title> AfriConnect Summit 2026</title>
 </head>
 <body>
-    <div>
+    <header>
+        <nav>
     <ul>
         <li>
-            <a href="index.html">Acceuil</a>
+            <a href="index.html">Accueil</a>
         </li>
         <li>
             <a href="programme.html">Programme</a>
@@ -21,6 +24,235 @@
             <a href="contact.html">Inscription&Contact</a>
         </li>
     </ul>
-  </div>
-</body>
+  </nav>
+    </header>
+<section class="hero-programme">
+    <div class="hero-content">
+        <h1>Programme de la conference</h1>
+        <nav class="fil-ariane">
+    <a href="index.html">Accueil</a>
+    <span>></span>
+    <span>Programme</span>
+</nav>
+    </div>
+</section>
+<!--onglets-->
+<section  class="programme-tabs">
+    <button class="planning active" data-day="jour1">
+     Jour 1
+    </button>
+    <button class="planning" data-day="jour2">
+     Jour 2
+    </button>
+    <button class="planning" data-day="jour3">
+     Jour 3
+    </button>
+</section>
+ 
+<!--tableau day1-->
+<section id="jour1" class="planning active">
+    <table>
+        <thead>
+            <tr>
+                <th>Heure</th>
+                <th>Session</th>
+                <th>Intervenant</th>
+                <th>Salle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>08H00</td>
+                <td>Ouverture officielle</td>
+                <td>Rosalie Ndiaye</td>
+                <td>A</td>
+            </tr>
+            <tr>
+              <td>10H00</td>
+                <td>Conference</td>
+                <td>Fatou mbaye</td>
+                <td>B</td>
+            </tr>
+            <tr>
+              <td>11H30</td>
+                <td>Cybersecurite</td>
+                <td>Adja Diallo</td>
+                <td>C</td>
+            </tr>
+            <tr>
+              <td>15H00</td>
+                <td>Cloud computing</td>
+                <td>pierre Dasylva</td>
+                <td>A</td>
+            </tr>
+            <tr>
+              <td>17H00</td>
+                <td>Networking</td>
+                <td>Tous</td>
+                <td>Hall</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section  id="jour2" class="planning">
+    <table>
+        <thead>
+            <tr>
+                <th>Heure</th>
+                <th>Session</th>
+                <th>Intervenant</th>
+                <th>Salle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>08H00</td>
+                <td>Ouvrture officielle</td>
+                <td>Baabacar Sy</td>
+                <td>A</td>
+            </tr>
+            <tr>
+              <td>10H00</td>
+                <td>Developpment Web</td>
+                <td>Bamba Fall</td>
+                <td>B</td>
+            </tr>
+            <tr>
+              <td>11H30</td>
+                <td>Intelligence Artificielle</td>
+                <td>Khadim Faye</td>
+                <td>C</td>
+            </tr>
+            <tr>
+              <td>15H00</td>
+                <td>UX/UI</td>
+                <td>Khoudia Dia</td>
+                <td>A</td>
+            </tr>
+            <tr>
+              <td>17H00</td>
+                <td>Atelier Pratique</td>
+                <td>Khady Kane</td>
+                <td>Hall</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section id="jour3" class="planning">
+    <table>
+        <thead>
+            <tr>
+                <th>Heure</th>
+                <th>Session</th>
+                <th>Intervenant</th>
+                <th>Salle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>08H00</td>
+                <td>Blockchain</td>
+                <td>Mariam Diop</td>
+                <td>A</td>
+            </tr>
+            <tr>
+              <td>10H00</td>
+                <td>Big Data</td>
+                <td>Idrissa Camara</td>
+                <td>B</td>
+            </tr>
+            <tr>
+              <td>11H30</td>
+                <td>Startup Pitch</td>
+                <td>Samba Ndiaye</td>
+                <td>C</td>
+            </tr>
+            <tr>
+              <td>15H00</td>
+                <td>Entrepreneuriat</td>
+                <td>Mbacke Samb</td>
+                <td>A</td>
+            </tr>
+            <tr>
+              <td>17H00</td>
+                <td>Cloture</td>
+                <td>Tous</td>
+                <td>Hall</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section class="thematiques">
+
+    <h2>Les grandes thématiques</h2>
+
+    <div class="grille">
+
+        <div class="carte">
+            <i class="bi bi-cpu"></i>
+            <h3>Intelligence Artificielle</h3>
+            <p>Découvrir les dernières avancées de l'IA.</p>
+        </div>
+
+        <div class="carte">
+            <i class="bi bi-shield-lock"></i>
+            <h3>Cybersécurité</h3>
+            <p>Protéger les données et les systèmes.</p>
+        </div>
+
+        <div class="carte">
+            <i class="bi bi-cloud"></i>
+            <h3>Cloud Computing</h3>
+            <p>Les nouvelles solutions dans le cloud.</p>
+        </div>
+
+        <div class="carte">
+            <i class="bi bi-globe"></i>
+            <h3>Transformation digitale</h3>
+            <p>Le numérique au cœur des entreprises.</p>
+        </div>
+
+    </div>
+
+</section>  
+<footer>
+
+<div class="footer-container">
+
+<div>
+Logo
+
+</div>
+
+<div>
+
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="programme.html">Programme</a></li>
+<li><a href="intervenants.html">Intervenants</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</div>
+
+<div>
+
+Contact
+
+</div>
+
+</div>
+<div class="reseaux">
+<i class="bi bi-facebook"></i>
+
+<i class="bi bi-instagram"></i>
+
+<i class="bi bi-linkedin"></i>
+
+<i class="bi bi-twitter-x"></i>
+</div>
+<p>© <span id="year"></span> Tech Africa Summit</p>
+</footer>
+  <script src="JS/main.js"></script>
+ </body>
 </html>
