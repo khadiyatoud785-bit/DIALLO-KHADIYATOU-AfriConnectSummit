@@ -532,3 +532,216 @@ footer > p{
 #haut:hover{
     background: var(--couleur-secondaire);
 }
+
+
+/*==========================
+HERO INTERNE
+==========================*/
+
+.hero-interne{
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+    url("../images/hero.jpg.jpg") center/cover no-repeat;
+
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+.hero-interne h1{
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero-interne p{
+    font-size: 1.1rem;
+}
+
+.hero-interne a{
+    color: var(--couleur-secondaire);
+}
+
+
+/*==========================
+CONTACT
+==========================*/
+
+.contact-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 80px 8%;
+    align-items: flex-start;
+}
+
+/* Formulaire */
+
+#formulaire{
+    flex: 2;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+#formulaire label{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#formulaire input,
+#formulaire select,
+#formulaire textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+#formulaire textarea{
+    resize: none;
+    height: 130px;
+}
+
+#formulaire button{
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: var(--couleur-principale);
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#formulaire button:hover{
+    background: var(--couleur-secondaire);
+}
+
+/* Informations */
+
+.infos-contact{
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+.infos-contact h2{
+    margin-bottom: 20px;
+}
+
+.infos-contact p{
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Messages d'erreur */
+
+.erreur{
+    color: red;
+    font-size: .85rem;
+}
+
+/*==========================
+FAQ
+==========================*/
+
+.faq{
+    padding: 80px 8%;
+}
+
+.faq h2{
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.question{
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+.question input{
+    display: none;
+}
+
+.question label{
+    display: block;
+    padding: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: var(--couleur-principale);
+    color: white;
+}
+
+.reponse{
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    transition: max-height .4s ease, padding .4s ease;
+}
+
+.question input:checked ~ .reponse{
+    max-height: 200px;
+    padding: 18px;
+}
+
+/*==========================
+GOOGLE MAPS
+==========================*/
+
+.map{
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.map h2{
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.map-frame{
+    width: 100%;
+    max-width: 1000px;
+    height: 400px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+/*==========================
+RESPONSIVE CONTACT
+==========================*/
+
+@media (max-width: 768px){
+
+    .contact-container{
+        flex-direction: column;
+    }
+
+    #formulaire,
+    .infos-contact{
+        width: 100%;
+    }
+
+    .hero-interne h1{
+        font-size: 2rem;
+    }
+
+    .map-frame{
+        height: 300px;
+    }
+}
