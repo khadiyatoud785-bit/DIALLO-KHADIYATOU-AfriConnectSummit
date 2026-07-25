@@ -10,9 +10,9 @@ RESET navbar
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    background: rgb(67, 45, 45);
-    color: #222;
+    line-height:1.6;
+    background:#3E2723;
+    color:#222;
 }
 
 img{
@@ -70,9 +70,10 @@ nav{
 }
 
 .logo img{
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:50%;
 }
 
 /* Liens */
@@ -547,34 +548,38 @@ footer > p{
 HERO INTERNE
 ==========================*/
 
+/*==========================
+HERO INTERNE
+==========================*/
+
 .hero-interne{
-    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+    margin-top:90px;
+    height:300px;
+
+    background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
     url("../images/hero.jpg.jpg") center/cover no-repeat;
 
-    height: 300px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-    color: white;
+    text-align:center;
+    color:white;
 }
 
 .hero-interne h1{
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size:3rem;
+    margin-bottom:15px;
 }
 
 .hero-interne p{
-    font-size: 1.1rem;
+    font-size:1.1rem;
 }
 
 .hero-interne a{
-    color: var(--couleur-secondaire);
+    color:var(--couleur-secondaire);
 }
-
 
 /*==========================
 CONTACT
@@ -736,27 +741,35 @@ GOOGLE MAPS
 partie programme
 ==========================*/
 /*==========================
-RESPONSIVE CONTACT
+RESPONSIVE GENERAL
 ==========================*/
 
-@media (max-width: 768px){
+@media(max-width:768px){
 
-    .contact-container{
-        flex-direction: column;
-    }
+.chiffres{
+    grid-template-columns:1fr;
+}
 
-    #formulaire,
-    .infos-contact{
-        width: 100%;
-    }
+.contenu{
+    flex-direction:column;
+}
 
-    .hero-interne h1{
-        font-size: 2rem;
-    }
+.intervenants{
+    grid-template-columns:1fr;
+}
 
-    .map-frame{
-        height: 300px;
-    }
+.sponsor{
+    flex-direction:column;
+}
+
+.footer-container{
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:2rem;
+}
+
 }
 .hero-programme{
     background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
@@ -893,4 +906,185 @@ table{
     font-size:14px;
 }
 
+}
+
+
+
+
+
+/*==========================
+HERO INTERNE INTERVENANTS
+==========================*/
+
+.hero-interne{
+    margin-top:90px;
+    height:300px;
+    background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("../images/intervenant.jpg") center/cover no-repeat;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-text h1{
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p{
+    font-size: 1.1rem;
+}
+
+.hero-text a{
+    color: var(--couleur-secondaire);
+}
+
+/*==========================
+FILTRES
+==========================*/
+
+.filtre{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+}
+
+
+.btn-filtre{
+    padding:12px 22px;
+    border:none;
+    border-radius:30px;
+    background:var(--gris);
+    cursor:pointer;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.btn-filtre:hover,
+.btn-filtre.active{
+    background:var(--couleur-principale);
+    color:white;
+}
+
+.filtre .btn:hover{
+    background: var(--couleur-principale);
+    color: white;
+}
+
+.btn-filtre.active{
+    background: var(--couleur-principale);
+    color: white;
+}
+
+/*==========================
+INTERVENANTS
+==========================*/
+
+.intervenants-2{
+    padding: 60px;
+}
+
+.grille-intervenants{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+}
+
+.carte-intervenant{
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: .3s;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+.carte-intervenant:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.25);
+}
+
+.carte-intervenant img{
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.carte-intervenant h3{
+    margin-top: 15px;
+    color: var(--couleur-principale);
+}
+
+.carte-intervenant p{
+    margin: 8px 0;
+    color: #555;
+}
+
+.carte-intervenant h4{
+    color: var(--couleur-secondaire);
+    font-weight: normal;
+}
+
+/*==========================
+RESPONSIVE
+==========================*/
+
+@media(max-width:992px){
+
+.grille-intervenants{
+    grid-template-columns: repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+    padding:15px 20px;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+nav ul{
+    display:none;
+}
+
+.hero-text h1{
+    font-size:2rem;
+}
+
+.grille-intervenants{
+    grid-template-columns:1fr;
+}
+
+.intervenants-2{
+    padding:30px 20px;
+}
+
+.filtre{
+    gap:10px;
+}
+
+.btn-filtre{
+    width:100%;
+}
+
+}
+nav ul.active{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    background:white;
+    padding:20px;
 }
