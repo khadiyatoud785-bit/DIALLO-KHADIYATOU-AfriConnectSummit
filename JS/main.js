@@ -75,19 +75,19 @@ if(boutonHaut){
 
 const navbar = document.querySelector("nav");
 
-window.addEventListener("scroll", function(){
+if (navbar) {
 
-    if(window.scrollY > 80){
+    window.addEventListener("scroll", function(){
 
-        navbar.classList.add("scrolled");
+        if(window.scrollY > 80){
+            navbar.classList.add("scrolled");
+        }else{
+            navbar.classList.remove("scrolled");
+        }
 
-    }else{
+    });
 
-        navbar.classList.remove("scrolled");
-
-    }
-
-});
+}
 
 
 //==============================
@@ -107,35 +107,34 @@ if(menuBtn){
     });
 
 }
+//==============================
 // COMPTE A REBOURS
+//==============================
 
-const dateEvenement = new Date("August 20, 2026 00:00:00").getTime();
+const joursElement = document.getElementById("jours");
 
+if (joursElement) {
 
-setInterval(function(){
+    const dateEvenement = new Date("August 20, 2026 00:00:00").getTime();
 
-    const maintenant = new Date().getTime();
+    setInterval(function(){
 
-    const distance = dateEvenement - maintenant;
+        const maintenant = new Date().getTime();
+        const distance = dateEvenement - maintenant;
 
+        const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const secondes = Math.floor((distance % (1000 * 60)) / 1000);
 
-    const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("jours").textContent = jours;
+        document.getElementById("heures").textContent = heures;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("secondes").textContent = secondes;
 
-    const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    }, 1000);
 
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-    const secondes = Math.floor((distance % (1000 * 60)) / 1000);
-
-
-
-    document.getElementById("jours").innerHTML = jours;
-    document.getElementById("heures").innerHTML = heures;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("secondes").innerHTML = secondes;
-
-
-},1000);
+}
 // ANIMATIONS AU SCROLL
 
 const elementsAnimation = document.querySelectorAll(".animation");
@@ -245,58 +244,40 @@ const boutonsFiltre = document.querySelectorAll(".btn-filtre");
 const cartesIntervenants = document.querySelectorAll(".carte-intervenant");
 
 
-boutonsFiltre.forEach(bouton => {
+if (boutonsFiltre.length > 0) {
 
-    bouton.addEventListener("click", ()=>{
+    boutonsFiltre.forEach(bouton => {
 
+        bouton.addEventListener("click", ()=>{
 
-        // retirer le bouton actif
-        boutonsFiltre.forEach(btn=>{
-            btn.classList.remove("active");
-        });
+            boutonsFiltre.forEach(btn=>{
+                btn.classList.remove("active");
+            });
 
+            bouton.classList.add("active");
 
-        // ajouter actif au bouton choisi
-        bouton.classList.add("active");
+            let categorie = bouton.dataset.filtre;
 
+            cartesIntervenants.forEach(carte=>{
 
-        let categorie = bouton.dataset.filtre;
+                if(categorie === "tous"){
+                    carte.style.display = "block";
+                }
+                else if(carte.classList.contains(categorie)){
+                    carte.style.display = "block";
+                }
+                else{
+                    carte.style.display = "none";
+                }
 
-
-        cartesIntervenants.forEach(carte=>{
-
-
-            if(categorie === "tous"){
-
-                carte.style.display = "block";
-
-            }
-
-            else if(carte.classList.contains(categorie)){
-
-                carte.style.display = "block";
-
-            }
-
-            else{
-
-                carte.style.display = "none";
-
-            }
-
+            });
 
         });
-
 
     });
 
-});
-
-if(boutonsFiltre.length > 0){
-
-    // code du filtrage ici
-
 }
+
 
 // VALIDATION FORMULAIRE
 
