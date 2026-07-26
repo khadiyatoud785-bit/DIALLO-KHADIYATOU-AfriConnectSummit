@@ -39,6 +39,27 @@ VARIABLES
     --noir:#222222;
     --gris:#f4f4f4;
 }
+[data-theme="dark"]{
+    --blanc:#222;
+    --noir:#ffffff;
+    --gris:#333;
+}
+
+[data-theme="dark"] body{
+    background:#222;
+    color:white;
+}
+
+[data-theme="dark"] .carte,
+[data-theme="dark"] .chiffre,
+[data-theme="dark"] .intervenant,
+[data-theme="dark"] .carte-intervenant,
+[data-theme="dark"] #formulaire,
+[data-theme="dark"] .infos-contact{
+    background:#333;
+    color:white;
+}
+
 
 /*==========================
 NAVBAR
@@ -56,6 +77,22 @@ nav{
     padding: 15px 60px;
     box-shadow: 0 2px 10px rgba(0,0,0,.1);
     z-index: 1000;
+     transition:0.3s ease;
+}
+nav.scrolled{
+    background:var(--couleur-principale);
+    box-shadow:0 8px 30px rgba(0,0,0,.35);
+}
+nav.scrolled ul li a{
+    color:white;
+}
+
+nav.scrolled .logo a{
+    color:white;
+}
+
+nav.scrolled #theme-toggle{
+    color:white;
 }
 
 /* Logo */
@@ -111,6 +148,8 @@ nav ul li a:hover{
     border: none;
     font-size: 2rem;
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
 }
 
 
@@ -492,6 +531,14 @@ footer{
 .footer-container p{
     margin-bottom: 8px;
 }
+[data-theme="dark"] footer{
+    background:#111;
+    color:white;
+}
+
+[data-theme="dark"] .footer-container a{
+    color:white;
+}
 
 /* Réseaux sociaux */
 
@@ -506,6 +553,26 @@ footer{
     font-size: 1.5rem;
     cursor: pointer;
     transition: .3s;
+}
+/* Texte footer qui défile */
+
+.defile{
+    overflow: hidden;
+    white-space: nowrap;
+    animation: defilement 8s linear infinite;
+}
+
+
+@keyframes defilement{
+
+    from{
+        transform: translateX(100%);
+    }
+
+    to{
+        transform: translateX(-100%);
+    }
+
 }
 
 .reseaux i:hover{
@@ -537,7 +604,10 @@ footer > p{
 
     font-size: 1.3rem;
     cursor: pointer;
+    display:none;
 }
+
+    
 
 #haut:hover{
     background: var(--couleur-secondaire);
@@ -638,6 +708,18 @@ CONTACT
 
 #formulaire button:hover{
     background: var(--couleur-secondaire);
+}
+.erreur-champ{
+    border:2px solid red !important;
+}
+
+.correct-champ{
+    border:2px solid green !important;
+}
+
+.message-erreur{
+    color:red;
+    font-size:14px;
 }
 
 /* Informations */
@@ -891,27 +973,6 @@ tbody tr:hover{
 }
 
 
-@media(max-width:768px){
-
-.grille{
-    grid-template-columns:1fr;
-}
-
-.programme-tabs{
-    flex-direction:column;
-    align-items:center;
-}
-
-table{
-    font-size:14px;
-}
-
-}
-
-
-
-
-
 /*==========================
 HERO INTERNE INTERVENANTS
 ==========================*/
@@ -1076,15 +1137,131 @@ nav ul{
 .btn-filtre{
     width:100%;
 }
-
-}
-nav ul.active{
-    display:flex;
-    flex-direction:column;
+nav ul{
+    display:none;
     position:absolute;
-    top:80px;
+    top:85px;
     left:0;
     width:100%;
     background:white;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
     padding:20px;
+}
+}
+
+/*==========================
+ANIMATIONS AU SCROLL
+==========================*/
+
+.animation{
+    opacity:0;
+     transition:1s ease;
+}
+
+
+/* Apparition simple */
+
+.fade-in{
+    transform:translateY(30px);
+}
+
+
+/* Arrivée depuis la gauche */
+
+.slide-in{
+    transform:translateX(-50px);
+}
+
+
+/* Zoom */
+
+.zoom-in{
+    transform:scale(0.8);
+}
+
+
+/* Quand l'élément devient visible */
+
+.animation.visible{
+    opacity:1;
+    transform:translate(0);
+}
+/*==========================
+ANIMATION HERO AU CHARGEMENT
+==========================*/
+
+.hero h1{
+    animation: apparition 1s ease;
+}
+
+.hero p{
+    animation: apparition 1.2s ease;
+}
+
+.hero-btn{
+    animation: zoom 1.4s ease;
+}
+
+.rebours{
+    animation: apparition 1.6s ease;
+}
+
+
+@keyframes apparition{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+@keyframes zoom{
+
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+@media(max-width:768px){
+
+    nav{
+        position:fixed;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav ul{
+        display:none;
+        position:fixed;
+        top:80px;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        align-items:center;
+        padding:20px;
+        gap:20px;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
 }
